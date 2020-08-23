@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:id="@+id/profileActivity"
+    tools:context=".ProfileActivity">
+
+<!--    profile image -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        app:cardCornerRadius="100dp"
+        style="@style/cardview_style">
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+<!--    full name-->
+    <LinearLayout style="@style/profile_details_layout_style">
+
+        <ImageView
+            android:id="@+id/nameImage"
+            android:src="@drawable/ic_create2"
+            app:tint="@color/colorText"
+            style="@style/profile_image_style" />
+        <TextView
+            android:id="@+id/nameValue"
+            android:text="full name"
+            style="@style/profile_text_style" />
+    </LinearLayout>
+
+<!--    phone number-->
+    <LinearLayout style="@style/profile_details_layout_style">
+
+        <ImageView
+            android:id="@+id/phoneImage"
+            android:src="@drawable/ic_phone2"
+            app:tint="@color/colorText"
+            style="@style/profile_image_style"/>
+        <TextView
+            android:id="@+id/phoneValue"
+            android:text="phone number"
+            style="@style/profile_text_style"
+            />
+    </LinearLayout>
+
+<!--    email-->
+    <LinearLayout style="@style/profile_details_layout_style">
+
+        <ImageView
+            android:id="@+id/emailImage"
+            android:src="@drawable/ic_email2"
+            app:tint="@color/colorText"
+            style="@style/profile_image_style"/>
+        <TextView
+            android:id="@+id/emailValue"
+            android:text="email"
+            style="@style/profile_text_style"
+            />
+    </LinearLayout>
+
+<!--    gender-->
+    <LinearLayout style="@style/profile_details_layout_style">
+
+        <ImageView
+            android:id="@+id/genderImage"
+            android:src="@drawable/ic_people2"
+            app:tint="@color/colorText"
+            style="@style/profile_image_style"/>
+        <TextView
+            android:id="@+id/genderValue"
+            android:text="gender"
+            style="@style/profile_text_style"
+            />
+    </LinearLayout>
+
+</LinearLayout>

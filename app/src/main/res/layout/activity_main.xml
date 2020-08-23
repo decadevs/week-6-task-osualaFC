@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/days_one"
+        android:padding="20dp"
+        android:text="@string/create_account"
+        android:textAllCaps="true"
+        android:textColor="#ffffff"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fullName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/days_one"
+            android:hint="@string/full_name"
+            android:textColorHint="@color/colorText"
+            android:textStyle="bold"
+            app:boxStrokeColor="@color/colorText"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorText"
+            app:hintTextColor="@color/colorGen"
+            app:startIconDrawable="@drawable/ic_create"
+            app:startIconTint="@color/colorText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_fullName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneNum"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/days_one"
+            android:hint="@string/phone_number"
+            android:textColorHint="@color/colorText"
+            android:textStyle="bold"
+            app:boxStrokeColor="@color/colorText"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorText"
+            app:hintTextColor="@color/colorGen"
+            app:startIconDrawable="@drawable/ic_phone"
+            app:startIconTint="@color/colorText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_phoneNum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="phone"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/days_one"
+            android:hint="@string/email"
+            android:textColorHint="@color/colorText"
+            android:textStyle="bold"
+            app:boxStrokeColor="@color/colorText"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorText"
+            app:hintTextColor="@color/colorGen"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/colorText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textEmailAddress"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sex"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/days_one"
+            android:hint="@string/gender"
+            android:textColorHint="@color/colorText"
+            android:textStyle="bold"
+            app:boxStrokeColor="@color/colorText"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconTint="@color/colorText"
+            app:hintTextColor="@color/colorGen"
+            app:startIconDrawable="@drawable/ic_people"
+            app:startIconTint="@color/colorText">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/signInBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorGen"
+        android:elevation="5dp"
+        android:fontFamily="@font/days_one"
+        android:text="@string/sign_in"
+        android:textColor="@color/colorText"
+        android:textStyle="bold" />
+
+</LinearLayout>

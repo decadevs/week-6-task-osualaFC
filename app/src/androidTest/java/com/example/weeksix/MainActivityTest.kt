@@ -1,6 +1,8 @@
 package com.example.weeksix
 
 import android.view.View
+import androidx.lifecycle.Lifecycle
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
@@ -8,6 +10,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.google.android.material.textfield.TextInputLayout
 import org.hamcrest.Description
@@ -32,11 +35,13 @@ fun textInputLayoutwithItemHint(matcherText: String): Matcher<View?>? {
 }
 
 @RunWith(AndroidJUnit4ClassRunner::class)
+@LargeTest
 class MainActivityTest{
 
     /** launch the activity**/
     @get :Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
+
 
 /** test if MainActivity is in view**/
     @Test
@@ -95,7 +100,11 @@ class MainActivityTest{
 
     @Test
     fun test_navigate_to_profile_activity(){
-       // scenario.waitForActivityToBecomeAnyOf(State.STOPPED, State.DESTROYED);
+        val activityScenario: ActivityScenario<MainActivity> =
+            ActivityScenario.launch(MainActivity::class.java)
+
+
+        activityScenario.moveToState(Lifecycle.State.RESUMED)
 
         onView(withId(R.id.text_fullName)).perform(replaceText("fredrick"))
         onView(withId(R.id.text_phoneNum)).perform(replaceText("07037625007"))
@@ -106,6 +115,8 @@ class MainActivityTest{
         onView(withId(R.id.signInBtn)).perform(click())
         /** get the profile activity and check if it is displayed**/
         onView(withId(R.id.profileActivity)).check(matches(isDisplayed()))
+
+       // activityScenario.moveToState(Lifecycle.State.DESTROYED)
     }
 
 
@@ -113,7 +124,7 @@ class MainActivityTest{
 
 }
 
-
+// scenario.waitForActivityToBecomeAnyOf(State.STOPPED, State.DESTROYED);
 
 
 

@@ -3,6 +3,7 @@ package com.example.weeksix
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Toast
@@ -12,8 +13,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_profile.*
 
 
-/** form parameters **/
 
+/** form parameters **/
+var validation = Validation()
 
 open class MainActivity : AppCompatActivity() {
 
@@ -31,47 +33,66 @@ open class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        phoneText = phoneNum.editText?.text.toString().trim()
+        nameText = fullName.editText?.text.toString().trim()
         /** adapter for drop-down**/
         val adapter = ArrayAdapter<String>(this, R.layout.dropdown_menu_popup_item, gender)
         dropdown.setAdapter(adapter)
 
         /** button click listener**/
         signInBtn.setOnClickListener {
-//            if( !validateFullName() || !validateEmail() || !validateGender() || !validatePhoneNumber()){
-//                return@setOnClickListener
-//            }
-//            else{
-//                Toast.makeText(this, "welcome", Toast.LENGTH_SHORT).show()
-//            }
+            if( !validateFullName() || !validateEmail() || !validateGender() || !validation.validatePhoneNumber(phoneText)){
+                return@setOnClickListener
+            }
+            else{
+                Toast.makeText(this, "welcome", Toast.LENGTH_SHORT).show()
+            }
 
             moveToProfile()
+
         }
     }
 
+//    /**validate phone number**/
+//    fun validatePhoneNumber(num: String): Boolean {
+//        val naijaPhone = Regex("""^(\+?234|0)[897][01]\d{8}${'$'}""")
+//
+//        return if (num.isEmpty()) {
+//            phoneNum.error = "Field can not be empty"
+//            false
+//        }
+//        else if(!num.matches(naijaPhone)){
+//            phoneNum.error = "Enter a valid phone number"
+//            return false
+//        }else{
+//                phoneNum.error = null
+//                phoneNum.isErrorEnabled = false
+//            true
+//        }
+//
+//    }
 
 
 
-
-    /**validate phone number**/
-    fun validatePhoneNumber(): Boolean {
-        val naijaPhone = Regex("""^(\+?234|0)[897][01]\d{8}${'$'}""")
-        val num = phoneNum.editText?.text.toString().trim()
-
-        return if (num.isEmpty()) {
-            phoneNum.error = "Field can not be empty"
-            false
-        }
-        else if(!num.matches(naijaPhone)){
-            phoneNum.error = "Enter a valid phone number"
-            return false
-        }else{
-            phoneNum.error = null
-            phoneNum.isErrorEnabled = false
-            true
-        }
-
-    }
+//    /**validate phone number**/
+//    fun validatePhoneNumber(): Boolean {
+//        val naijaPhone = Regex("""^(\+?234|0)[897][01]\d{8}${'$'}""")
+//        val num = phoneNum.editText?.text.toString().trim()
+//
+//        return if (num.isEmpty()) {
+//            phoneNum.error = "Field can not be empty"
+//            false
+//        }
+//        else if(!num.matches(naijaPhone)){
+//            phoneNum.error = "Enter a valid phone number"
+//            return false
+//        }else{
+//            phoneNum.error = null
+//            phoneNum.isErrorEnabled = false
+//            true
+//        }
+//
+//    }
 
     /** move to profile activity function**/
     private fun moveToProfile(){

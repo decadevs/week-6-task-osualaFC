@@ -15,6 +15,8 @@ import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.google.android.material.textfield.TextInputLayout
 import org.hamcrest.Description
 import org.hamcrest.Matcher
+import org.hamcrest.TypeSafeMatcher
+import org.hamcrest.core.AllOf.allOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,7 +24,7 @@ import org.junit.runner.RunWith
 
 /**custom matcher for textInputLayout hint**/
 
-fun textInputLayoutwithItemHint(matcherText: String): Matcher<View?>? {
+fun hintMatcher(matcherText: String): Matcher<View?>? {
     return object : BoundedMatcher<View?, TextInputLayout>(TextInputLayout::class.java) {
         override fun describeTo(description: Description) {
             description.appendText("with item hint: $matcherText")
@@ -34,8 +36,11 @@ fun textInputLayoutwithItemHint(matcherText: String): Matcher<View?>? {
     }
 }
 
+
+
+
 @RunWith(AndroidJUnit4ClassRunner::class)
-@LargeTest
+
 class MainActivityTest{
 
     /** launch the activity**/
@@ -48,6 +53,12 @@ class MainActivityTest{
     fun test_visibility_main_activity(){
         /** find the view  and check if the view is displayed**/
         onView(withId(R.id.main)).check(matches(isDisplayed()))
+    }
+
+/** test if the background is displayed**/
+    @Test
+    fun visibility_main_background(){
+        onView(allOf(withId(R.id.main), hasBackground(R.drawable.background), isDisplayed()));
     }
 
 /** test if MainActivity views are visible**/
@@ -82,27 +93,26 @@ class MainActivityTest{
         onView(withId(R.id.title)).check(matches(withText(R.string.create_account)))
 
         /** test if fullName hint is visible**/
-        onView(withId(R.id.fullName)).check(matches(textInputLayoutwithItemHint("full name")))
+        onView(withId(R.id.fullName)).check(matches(hintMatcher("full name")))
 
         /** test if phoneNumber hint is visible**/
-        onView(withId(R.id.phoneNum)).check(matches(textInputLayoutwithItemHint("phone number")))
+        onView(withId(R.id.phoneNum)).check(matches(hintMatcher("phone number")))
 
         /** test if email hint is visible**/
-        onView(withId(R.id.Email)).check(matches(textInputLayoutwithItemHint("email")))
+        onView(withId(R.id.Email)).check(matches(hintMatcher("email")))
 
         /** test if gender hint is visible**/
-        onView(withId(R.id.sex)).check(matches(textInputLayoutwithItemHint("gender")))
+        onView(withId(R.id.sex)).check(matches(hintMatcher("gender")))
         /** test if button text is visible**/
         onView(withId(R.id.signInBtn)).check(matches(withText(R.string.sign_in)))
     }
+
 
     /** test for navigation to ProfileActivity **/
 
     @Test
     fun test_navigate_to_profile_activity(){
-        val activityScenario: ActivityScenario<MainActivity> =
-            ActivityScenario.launch(MainActivity::class.java)
-
+        val activityScenario: ActivityScenario<MainActivity> = ActivityScenario.launch(MainActivity::class.java)
 
         activityScenario.moveToState(Lifecycle.State.RESUMED)
 
@@ -116,7 +126,6 @@ class MainActivityTest{
         /** get the profile activity and check if it is displayed**/
         onView(withId(R.id.profileActivity)).check(matches(isDisplayed()))
 
-       // activityScenario.moveToState(Lifecycle.State.DESTROYED)
     }
 
 

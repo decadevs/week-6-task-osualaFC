@@ -31,7 +31,7 @@
 
         <ImageView
             android:id="@+id/nameImage"
-            android:src="@drawable/ic_create2"
+            android:src="@drawable/ic_create"
             app:tint="@color/colorText"
             style="@style/profile_image_style" />
         <TextView
@@ -45,7 +45,7 @@
 
         <ImageView
             android:id="@+id/phoneImage"
-            android:src="@drawable/ic_phone2"
+            android:src="@drawable/ic_phone"
             app:tint="@color/colorText"
             style="@style/profile_image_style"/>
         <TextView
@@ -60,7 +60,7 @@
 
         <ImageView
             android:id="@+id/emailImage"
-            android:src="@drawable/ic_email2"
+            android:src="@drawable/ic_email"
             app:tint="@color/colorText"
             style="@style/profile_image_style"/>
         <TextView
@@ -75,7 +75,7 @@
 
         <ImageView
             android:id="@+id/genderImage"
-            android:src="@drawable/ic_people2"
+            android:src="@drawable/ic_people"
             app:tint="@color/colorText"
             style="@style/profile_image_style"/>
         <TextView

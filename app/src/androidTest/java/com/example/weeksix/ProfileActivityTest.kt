@@ -8,6 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import org.hamcrest.core.AllOf
 import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
@@ -15,7 +16,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4ClassRunner::class)
 
-class ProfileActivityTest{
+class ProfileActivityTest {
     /** launch the activity**/
     @get: Rule
     val activityRule = ActivityScenarioRule(ProfileActivity::class.java)
@@ -23,15 +24,21 @@ class ProfileActivityTest{
 
     /** test if ProfileActivity is in view**/
     @Test
-    fun test_visibility_profile_activity(){
+    fun test_visibility_profile_activity() {
         /** find the view  and check if the view is displayed**/
         onView(ViewMatchers.withId(R.id.profileActivity))
             .check(matches(isDisplayed()))
     }
 
+    /** test if the background is displayed**/
+    @Test
+    fun visibility_main_background() {
+        onView(AllOf.allOf(ViewMatchers.withId(R.id.profileActivity), ViewMatchers.hasBackground(R.drawable.background), isDisplayed()));
+    }
+
     /** test if ProfileActivity views are visible**/
     @Test
-    fun test_visibility_profile_activity_views(){
+    fun test_visibility_profile_activity_views() {
 
         /** test if card view is in view**/
         onView(ViewMatchers.withId(R.id.cardView))

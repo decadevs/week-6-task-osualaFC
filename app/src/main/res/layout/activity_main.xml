@@ -8,7 +8,7 @@
     android:id="@+id/main"
     android:background="@drawable/background"
     tools:context=".MainActivity">
-
+<!-- title view-->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -20,12 +20,14 @@
         android:textColor="#ffffff"
         android:textSize="40sp" />
 
+<!--    form layout-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:orientation="vertical">
 
+<!--        full name edit_text view-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/fullName"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -53,7 +55,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
+<!--        phone number edit_text view-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneNum"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -81,7 +83,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
+<!--        email edit_text view-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/Email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -109,6 +111,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+<!--        gender edit_text view-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/sex"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -134,6 +137,7 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
+    but
     <Button
         android:id="@+id/signInBtn"
         android:layout_width="match_parent"

@@ -82,10 +82,10 @@ open class MainActivity : AppCompatActivity() {
         genderText = sex.editText?.text.toString().trim()
 
         intent = Intent(this, ProfileActivity::class.java )
-        intent.putExtra("name_key", nameText)
-        intent.putExtra("phone_key", phoneText)
-        intent.putExtra("email_key", emailText)
-        intent.putExtra("gender_key", genderText)
+        intent.putExtra("NAME_KEY", nameText)
+        intent.putExtra("PHONE_KEY", phoneText)
+        intent.putExtra("EMAIL_KEY", emailText)
+        intent.putExtra("GENDER_KEY", genderText)
 
         startActivity(intent)
     }

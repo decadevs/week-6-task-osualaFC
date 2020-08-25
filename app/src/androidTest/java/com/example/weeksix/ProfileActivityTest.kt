@@ -2,10 +2,12 @@ package com.example.weeksix
 
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import org.hamcrest.core.AllOf
@@ -22,7 +24,7 @@ class ProfileActivityTest {
     val activityRule = ActivityScenarioRule(ProfileActivity::class.java)
 
 
-    /** test if ProfileActivity is in view**/
+    /** TEST IF PROFILE_ACTIVITY IS IN VIEW**/
     @Test
     fun test_visibility_profile_activity() {
         /** find the view  and check if the view is displayed**/
@@ -30,13 +32,13 @@ class ProfileActivityTest {
             .check(matches(isDisplayed()))
     }
 
-    /** test if the background is displayed**/
+    /** TEST IF BACKGROUND IS DISPLAYED**/
     @Test
     fun visibility_main_background() {
         onView(AllOf.allOf(ViewMatchers.withId(R.id.profileActivity), ViewMatchers.hasBackground(R.drawable.background), isDisplayed()));
     }
 
-    /** test if ProfileActivity views are visible**/
+    /**TEST IF PROFILE-ACTIVITY VIEWS ARE VISIBLE**/
     @Test
     fun test_visibility_profile_activity_views() {
 
@@ -80,4 +82,6 @@ class ProfileActivityTest {
         onView(ViewMatchers.withId(R.id.genderValue))
             .check(matches(isDisplayed()))
     }
+
+
 }

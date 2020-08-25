@@ -23,10 +23,10 @@ class ProfileActivity : AppCompatActivity() {
 
 
         /** get values from mainActivity **/
-        profileName = intent.getStringExtra("name_key").toString()
-        profilePhoneNumber = intent.getStringExtra("phone_key").toString()
-        profileEmail = intent.getStringExtra("email_key").toString()
-        profileGender = intent.getStringExtra("gender_key").toString()
+        profileName = intent.getStringExtra("NAME_KEY").toString()
+        profilePhoneNumber = intent.getStringExtra("PHONE_KEY").toString()
+        profileEmail = intent.getStringExtra("EMAIL_KEY").toString()
+        profileGender = intent.getStringExtra("GENDER_KEY").toString()
 
         /** set TextViews text values**/
         nameValue.text = profileName

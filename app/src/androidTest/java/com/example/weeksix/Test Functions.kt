@@ -26,6 +26,20 @@ class TestFunc {
         }
     }
 
+    /**custom matcher for textInputLayout error **/
+    fun errorMatcher(matcherText: String): Matcher<View?>? {
+        return object : BoundedMatcher<View?, TextInputLayout>(TextInputLayout::class.java) {
+            override fun describeTo(description: Description) {
+                description.appendText("with item hint: $matcherText")
+            }
+
+            override fun matchesSafely(editTextField: TextInputLayout): Boolean {
+                return matcherText.equals(editTextField.error.toString(), ignoreCase = true)
+            }
+        }
+    }
+
+
 
 
     /** form input details**/
@@ -57,11 +71,11 @@ class TestFunc {
     fun fill_error_form() {
         val name =
             Espresso.onView(ViewMatchers.withId(R.id.text_fullName))
-                .perform(ViewActions.replaceText(""))
+                .perform(ViewActions.replaceText(name))
         Espresso.closeSoftKeyboard()
 
         Espresso.onView(ViewMatchers.withId(R.id.text_phoneNum))
-            .perform(ViewActions.replaceText(phone))
+            .perform(ViewActions.replaceText("0987653"))
         Espresso.closeSoftKeyboard()
 
         Espresso.onView(ViewMatchers.withId(R.id.text_email))

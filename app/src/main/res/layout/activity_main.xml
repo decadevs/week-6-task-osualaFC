@@ -137,7 +137,7 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
-    but
+<!--    button layout-->
     <Button
         android:id="@+id/signInBtn"
         android:layout_width="match_parent"

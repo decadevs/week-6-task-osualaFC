@@ -64,7 +64,7 @@ class MainActivityTest{
     }
 
 
-    /** TEST IF TEXTS AND HINTS AR VISIBLE **/
+    /** TEST IF TEXTS AND HINTS ARE VISIBLE **/
     @Test
     fun test_visibility_main_activity_texts_hints(){
 
@@ -89,7 +89,23 @@ class MainActivityTest{
         onView(withId(R.id.signInBtn)).check(matches(withText(R.string.sign_in)))
     }
 
+    /** TEST IF ERROR MESSAGES ARE VISIBLE**/
 
+    @Test
+    fun test_visibility_main_activity_error_messages(){
+        /** instance of Test Function class**/
+        var testFunc = TestFunc()
+
+        /** fill form**/
+        testFunc.fill_error_form()
+
+        /** find the view and perform a click assertion **/
+        onView(withId(R.id.signInBtn)).perform(click())
+
+        /** test if phoneNum error is visible**/
+        onView(withId(R.id.phoneNum)).check(matches(testFunc.errorMatcher("Enter a valid phone number")))
+
+    }
 
     /** TEST FOR NAVIGATION TO PROFILE_ACTIVITY **/
 

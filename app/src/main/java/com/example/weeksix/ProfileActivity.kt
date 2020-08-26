@@ -20,8 +20,6 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
 
-
-
         /** get values from mainActivity **/
         profileName = intent.getStringExtra("NAME_KEY").toString()
         profilePhoneNumber = intent.getStringExtra("PHONE_KEY").toString()

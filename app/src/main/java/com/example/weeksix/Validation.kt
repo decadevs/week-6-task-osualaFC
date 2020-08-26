@@ -1,7 +1,6 @@
 package com.example.weeksix
 
-import android.view.View
-import com.google.android.material.textfield.TextInputLayout
+
 
 
 class Validation  {

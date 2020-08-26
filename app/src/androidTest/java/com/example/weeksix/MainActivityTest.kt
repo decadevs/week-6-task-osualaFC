@@ -1,33 +1,20 @@
 package com.example.weeksix
 
-import android.view.View
+
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.intent.Intents.intended
-import androidx.test.espresso.intent.matcher.ComponentNameMatchers.hasShortClassName
-import androidx.test.espresso.intent.matcher.IntentMatchers.*
-import androidx.test.espresso.intent.rule.IntentsTestRule
-import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.google.android.material.textfield.TextInputLayout
-import org.hamcrest.Description
-import org.hamcrest.Matcher
-import org.hamcrest.TypeSafeMatcher
 import org.hamcrest.core.AllOf.allOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/** instance of Test Function class**/
-var testFunc = TestFunc()
+
 
 
 
@@ -81,6 +68,9 @@ class MainActivityTest{
     @Test
     fun test_visibility_main_activity_texts_hints(){
 
+        /** instance of Test Function class**/
+        var testFunc = TestFunc()
+
         /** test if title text is visible**/
         onView(withId(R.id.title)).check(matches(withText(R.string.create_account)))
 
@@ -100,10 +90,15 @@ class MainActivityTest{
     }
 
 
+
     /** TEST FOR NAVIGATION TO PROFILE_ACTIVITY **/
 
     @Test
     fun test_navigate_to_profile_activity(){
+
+        /** instance of Test Function class**/
+        var testFunc = TestFunc()
+
         /** launch activity**/
         val activityScenario: ActivityScenario<MainActivity> = ActivityScenario.launch(MainActivity::class.java)
 

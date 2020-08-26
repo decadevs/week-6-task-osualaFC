@@ -3,9 +3,15 @@ package com.example.weeksix
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Before
 
 class ValidationTest {
-private val test = Validation()
+    private lateinit var test: Validation
+    @Before
+    fun setUp(){
+          test = Validation()
+    }
+
   /** validatePhoneNum tests**/
   @Test
     fun empty_input(){

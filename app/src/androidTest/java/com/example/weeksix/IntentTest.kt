@@ -17,6 +17,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.core.AllOf
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -24,6 +25,8 @@ import org.junit.Test
 private val PACKAGE_NAME = "com.example.weeksix"
 
 class IntentTest {
+
+
     @get:Rule
     val intentsTestRule = IntentsTestRule(MainActivity::class.java)
 
@@ -32,6 +35,11 @@ class IntentTest {
     /** TEST IF INTENT DATA IS MOVED FROM MAIN_ACTIVITY TO PROFILE_ACTIVITY**/
     @Test
     fun test_intent_from_Main_to_Profile(){
+
+        /** instance of Test Function class**/
+        var testFunc = TestFunc()
+
+
         /**instance of intent class **/
         val data = Intent()
 
